@@ -1,0 +1,13 @@
+Source: ncp
+Section: net
+Priority: extra
+Maintainer: P. S. Clarke <debs@pscl4rke.net>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.3
+Homepage: http://www.fefe.de/ncp/
+
+Package: ncp
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Push files across a LAN without IP addresses
+ Long description goes here.

@@ -1,0 +1,37 @@
+Makefile obeys DESTDIR.
+Index: ncp-1.2.4/GNUmakefile
+===================================================================
+--- ncp-1.2.4.orig/GNUmakefile	2005-05-13 18:17:17.000000000 +0100
++++ ncp-1.2.4/GNUmakefile	2014-12-26 17:55:07.454063941 +0000
+@@ -1,5 +1,5 @@
+-prefix=/opt/diet
+-BINDIR=${prefix}/bin
++
++PREFIX=$(DESTDIR)/usr
+ 
+ TARGETS=ncp
+ 
+@@ -7,7 +7,6 @@
+ 
+ CC=gcc
+ CFLAGS=-pipe -Wall
+-LDFLAGS=
+ 
+ path = $(subst :, ,$(PATH))
+ diet_path = $(foreach dir,$(path),$(wildcard $(dir)/diet))
+@@ -58,11 +57,13 @@
+ endif
+ 
+ install:
+-	install -d $(PREFIX)/bin $(PREFIX)/man/man1
++	echo "Preferred install PREFIX is '$(PREFIX)'"
++	install -d $(PREFIX)/bin $(PREFIX)/share/man/man1
+ 	install ncp $(PREFIX)/bin
+ 	ln -f $(PREFIX)/bin/ncp $(PREFIX)/bin/npush
+ 	ln -f $(PREFIX)/bin/ncp $(PREFIX)/bin/npoll
+-	install -m 644 ncp.1 npush.1 $(PREFIX)/man/man1
++	install -m 644 ncp.1 npush.1 $(PREFIX)/share/man/man1
++	ln -f $(PREFIX)/share/man/man1/npush.1 $(PREFIX)/share/man/man1/npoll.1
+ 
+ uninstall:
+ 	rm -f $(PREFIX)/bin/ncp $(PREFIX)/bin/npush $(PREFIX)/bin/npoll $(PREFIX)/man/man1/ncp.1 $(PREFIX)/man/man1/npush.1
