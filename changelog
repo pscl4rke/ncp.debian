@@ -1,5 +1,7 @@
 ncp (1.2.4-1) unstable; urgency=low
 
-  * Initial release
+  * Initial release.
+  * Untested build dependencies.
+  * Tweaks to makefile install locations.
 
  -- P. S. Clarke <debs@pscl4rke.net>  Fri, 26 Dec 2014 17:56:22 +0000

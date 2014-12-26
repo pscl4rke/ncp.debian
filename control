@@ -2,7 +2,7 @@ Source: ncp
 Section: net
 Priority: extra
 Maintainer: P. S. Clarke <debs@pscl4rke.net>
-Build-Depends: debhelper (>= 8.0.0)
+Build-Depends: debhelper (>= 8.0.0), libowfat-dev
 Standards-Version: 3.9.3
 Homepage: http://www.fefe.de/ncp/
 
